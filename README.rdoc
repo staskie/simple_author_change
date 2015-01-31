@@ -1,6 +1,6 @@
 = Simple Author Change Redmine plugin
 
-This is a ver simple plugin, yet very useful.
+This is a very simple plugin, yet very useful.
 
 If you ever wanted to change the author of an issue that has already been in the system, then you should definitely check out this plugin.
 
