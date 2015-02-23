@@ -1,4 +1,4 @@
-<% potential_authors = issue.project.members.select { |member| member.user.allowed_to?(:add_issues, issue.project)} %>
+<% potential_authors = issue.project.members.select { |member| member.user.allowed_to?(:add_issues, issue.project)}.map(&:user) %>
 
 <% if User.current.allowed_to?(:change_issue_author, @project) %>
   <p>
