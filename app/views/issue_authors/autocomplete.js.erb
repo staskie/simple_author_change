@@ -1,4 +1,4 @@
-$('#author_id').html('<%= escape_javascript(render_potential_authors(@users)) %>')
+$('#author_id').html('<%= escape_javascript(render_potential_authors(@users, @issue)) %>')
 
 $('#author_id input[type=radio]').on('click', function(event) {
   var authorId = $(this).val();
