@@ -1,0 +1,9 @@
+$('#author_id').html('<%= escape_javascript(render_potential_authors(@users)) %>')
+
+$('#author_id input[type=radio]').on('click', function(event) {
+  var authorId = $(this).val();
+  var authorName = $(this).parent().text();
+  $('#issue_author_id').val(authorId);
+  $('#issue_author_name').val(authorName);
+  hideModal();
+});

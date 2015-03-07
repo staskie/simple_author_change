@@ -1,7 +1,8 @@
 <% if User.current.allowed_to?(:change_issue_author, @project) %>
   <p>
     <label for="issue_author_id"><%= l(:field_author) %><span class="required"> *</span></label>
-    <%= select_tag('issue[author_id]', options_from_collection_for_select(issue.potential_authors, 'id', 'name', issue.author_id) ) %>
+    <%= text_field_tag '', @issue.reload.author, disabled: true, style: 'margin-top:-5px', id: :issue_author_name %>
+    <%= hidden_field_tag 'issue[author_id]', @issue.author, id: :issue_author_id %>
+    <%= link_to image_tag('edit.png'), new_issue_issue_author_path(@issue), remote: true %>
   </p>
 <% end %>
-

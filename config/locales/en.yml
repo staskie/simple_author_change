@@ -1,3 +1,5 @@
 # English strings go here for Rails i18n
 en:
   # my_label: "My label"
+  label_change_author: Change Author
+  label_search_author: Search a new author
