@@ -3,10 +3,6 @@ require 'project'
 module SimpleAuthorChange
   module ProjectPatch
     def self.included(base)
-      base.class_eval do
-        safe_attributes :author_id
-      end
-
       base.send(:include, InstanceMethods)
     end
 

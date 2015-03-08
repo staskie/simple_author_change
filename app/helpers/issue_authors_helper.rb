@@ -15,9 +15,16 @@ module IssueAuthorsHelper
 
   def authors_radio_tags(name, users)
     s = ''
+    s << '<table>'
     users.each do |user|
-      s << "<label>#{ radio_button_tag name, user.id, false, :id => nil } #{h user}</label><br/>"
+      s << '<tr>'
+      s << "<td>#{ radio_button_tag name, user.id, false, id: nil}</td>"
+      s << "<td class='potential_author_name'>#{h user}</td>"
+      s << "<td>#{h user.mail}</td>"
+      s << "<td>#{h user.login}</td>"
+      s << '</tr>'
     end
+    s << '</table>'
     s.html_safe
   end
 end
