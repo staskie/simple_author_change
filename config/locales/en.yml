@@ -2,4 +2,7 @@
 en:
   # my_label: "My label"
   label_change_author: Change Author
-  label_search_author: Search a new author
+  label_search_author: Search for a new author
+
+
+  minimum_query_length: Type at least %{min_length} characters
