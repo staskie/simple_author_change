@@ -1,7 +1,7 @@
-require 'issue'
+require 'project'
 
 module SimpleAuthorChange
-  module IssuePatch
+  module ProjectPatch
     def self.included(base)
       base.class_eval do
         safe_attributes :author_id
@@ -17,9 +17,9 @@ module SimpleAuthorChange
         roles = Role.all.select { |r| r.has_permission?(:add_issues) }
         roles_user_ids = roles.map { |role| role.members.includes(:user) }.flatten.map(&:user).uniq.compact.map(&:id)
 
-        permitted_user_ids = project.users.where(id: roles_user_ids).map(&:id)
+        permitted_user_ids = users.where(id: roles_user_ids).map(&:id)
 
-        if User.anonymous.allowed_to?(:add_issues, project)
+        if User.anonymous.allowed_to?(:add_issues, self)
           permitted_user_ids << User.anonymous.id
         end
 

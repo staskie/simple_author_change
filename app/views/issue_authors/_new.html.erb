@@ -1,13 +1,13 @@
 <h3 class="title"><%= l(:label_change_author) %></h3>
 
 <%= content_tag 'div', :id => "issue_potential_author" do %>
-  <%= form_tag(:url => autocomplete_issue_issue_authors_path(@issue), id: 'issue_author_change_form') do %>
+  <%= form_tag(:url => autocomplete_project_issue_authors_path(@project), id: 'issue_author_change_form') do %>
     <fieldset>
       <p>
       <%= label_tag("author_change", l(:label_search_author)) %>
       <%= text_field_tag('author_change', nil) %>
       </p>
-      <%= javascript_tag "observeSearchfield('author_change', null, '#{ escape_javascript autocomplete_issue_issue_authors_path(@issue, :format => 'js') }')" %>
+      <%= javascript_tag "observeSearchfield('author_change', null, '#{ escape_javascript autocomplete_project_issue_authors_path(@project, :format => 'js') }')" %>
       <div id="author_id" style="height: 200px; overflow: auto">
       </div>
     </fieldset>

@@ -1,5 +1,5 @@
 class IssueAuthorsController < ApplicationController
-  before_filter :find_issue
+  before_filter :find_project
   before_filter :authorize
 
   unloadable
@@ -8,14 +8,13 @@ class IssueAuthorsController < ApplicationController
   end
 
   def autocomplete
-    @users = @issue.potential_authors(params[:q])
+    @users = @project.potential_authors(params[:q])
   end
 
   private
 
-  def find_issue
-    @issue = Issue.find(params[:issue_id])
-    @project = @issue.project
+  def find_project
+    @project = Project.find(params[:project_id])
   end
 
 end

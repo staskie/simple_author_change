@@ -1,5 +1,5 @@
 module IssueAuthorsHelper
-  def render_potential_authors(scope, issue)
+  def render_potential_authors(scope, project)
     principal_count = scope.count
     principal_pages = Redmine::Pagination::Paginator.new principal_count, 100, params['page']
     principals = scope.offset(principal_pages.offset).limit(principal_pages.per_page).all
@@ -7,7 +7,7 @@ module IssueAuthorsHelper
     s = content_tag('div', authors_radio_tags('issue[author_id]', principals))
 
     links = pagination_links_full(principal_pages, principal_count, :per_page_links => false) {|text, parameters, options|
-      link_to text, autocomplete_issue_issue_authors_path(issue, parameters.merge(:q => params[:q], :format => 'js')), :remote => true
+      link_to text, autocomplete_project_issue_authors_path(project, parameters.merge(:q => params[:q], :format => 'js')), :remote => true
     }
 
     s + content_tag('p', links, :class => 'pagination')

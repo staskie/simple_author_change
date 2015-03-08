@@ -13,9 +13,9 @@ Redmine::Plugin.register :simple_author_change do
   end
 end
 
-require_relative 'lib/simple_author_change/issue_patch'
+require_relative 'lib/simple_author_change/project_patch'
 require_relative 'lib/simple_author_change/hooks'
 
 Rails.configuration.to_prepare do
-  Issue.send(:include, SimpleAuthorChange::IssuePatch)
+  Project.send(:include, SimpleAuthorChange::ProjectPatch)
 end
