@@ -1,7 +1,7 @@
 <% if User.current.allowed_to?(:change_issue_author, @project) %>
   <p>
     <label for="issue_author_id"><%= l(:field_author) %><span class="required"> *</span></label>
-    <%= text_field_tag '', potential_author_name(@issue, params), disabled: true, style: 'margin-top:-5px', id: :issue_author_name %>
+    <%= text_field_tag '', @issue.potential_author_name(params), disabled: true, style: 'margin-top:-5px', id: :issue_author_name %>
     <%= hidden_field_tag 'issue[author_id]', @issue.author_id, id: :issue_author_id %>
     <%= link_to image_tag('edit.png'), new_project_issue_author_path(@project), remote: true %>
   </p>
