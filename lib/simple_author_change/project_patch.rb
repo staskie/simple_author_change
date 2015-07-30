@@ -14,7 +14,6 @@ module SimpleAuthorChange
         if query.length >= MIN_QUERY_LENGTH
           User.where(id: permitted_user_ids).like(query).sorted
         else
-          # Return an empty ActiveRecord::Relation
           User.scoped
         end
       end
