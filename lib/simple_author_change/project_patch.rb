@@ -34,8 +34,9 @@ module SimpleAuthorChange
       end
 
       def permitted_user_ids
-        permitted_user_ids = users.where(id: roles_user_ids).map(&:id)
-        permitted_user_ids << User.anonymous.id if include_anonymous_user?
+        _permitted_user_ids = users.where(id: roles_user_ids).map(&:id)
+        _permitted_user_ids << User.anonymous.id if include_anonymous_user?
+        _permitted_user_ids
       end
 
       def include_anonymous_user?
