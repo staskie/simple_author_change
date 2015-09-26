@@ -5,7 +5,7 @@
     <fieldset>
       <p>
       <%= label_tag("author_change", l(:label_search_author)) %>
-      <%= text_field_tag('author_change', nil, placeholder: I18n.t('minimum_query_length', min_length: Project::MinQueryLength), style: 'width:250px') %>
+      <%= text_field_tag('author_change', nil, placeholder: I18n.t('minimum_query_length', min_length: Project::MIN_QUERY_LENGTH), style: 'width:250px') %>
       </p>
       <%= javascript_tag "observeSearchfield('author_change', null, '#{ escape_javascript autocomplete_project_issue_authors_path(@project, :format => 'js') }')" %>
       <div id="author_id" style="height: 200px; overflow: auto">

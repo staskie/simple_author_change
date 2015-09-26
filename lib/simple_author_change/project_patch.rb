@@ -14,7 +14,7 @@ module SimpleAuthorChange
         if query.length >= MIN_QUERY_LENGTH
           User.where(id: permitted_user_ids).like(query).sorted
         else
-          User.scoped
+          User.where(nil)
         end
       end
 
@@ -25,7 +25,7 @@ module SimpleAuthorChange
       end
 
       def member_ids
-        Member.includes(:roles).where('roles.id in (?)', role_ids).map(&:id)
+        Member.includes(:member_roles).where('member_roles.role_id in (?)', role_ids).references(:member_roles).map(&:id)
       end
 
       def roles_user_ids
@@ -34,8 +34,9 @@ module SimpleAuthorChange
       end
 
       def permitted_user_ids
-        permitted_user_ids = users.where(id: roles_user_ids).map(&:id)
-        permitted_user_ids << User.anonymous.id if include_anonymous_user?
+        _permitted_user_ids = users.where(id: roles_user_ids).map(&:id)
+        _permitted_user_ids << User.anonymous.id if include_anonymous_user?
+        _permitted_user_ids
       end
 
       def include_anonymous_user?
