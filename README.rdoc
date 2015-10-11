@@ -8,7 +8,5 @@ It is very similar to the plugin from here: https://github.com/mcl-de/redmine_ch
 
 * it's simpler, does not require any external dependencies
 * it does not overwrite Redmie templates (it's using hooks)
-* it's ... wait for it... working with Redmie 2.6!
-
-And because it's so simple, it should really work with any Redmine version
+* it's ... wait for it... working with Redmie 2.6 (Redmine-2.x branch) and 3.0 (master branch)
 
