@@ -4,7 +4,7 @@ Redmine::Plugin.register :simple_author_change do
   name 'Simple Author Change plugin'
   author 'Dominik Staskiewicz'
   description 'This is a simplest way of changing an author I can think of'
-  version '0.0.5'
+  version '0.0.6'
   url 'http://dapplication.com'
   author_url 'http://dapplication.com'
 
