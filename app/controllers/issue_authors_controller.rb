@@ -8,7 +8,7 @@ class IssueAuthorsController < ApplicationController
   end
 
   def autocomplete
-    @users = @project.potential_authors(params[:q])
+    @users = @project.potential_authors(params[:q]).order('users.lastname asc')
   end
 
   private
