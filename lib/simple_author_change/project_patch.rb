@@ -25,7 +25,8 @@ module SimpleAuthorChange
       end
 
       def member_ids
-        Member.includes(:member_roles).where('member_roles.role_id in (?)', role_ids).references(:member_roles).map(&:id)
+        Member.includes(:member_roles).where('member_roles.role_id in (?)',role_ids)
+          .references(:member_roles).map(&:id)
       end
 
       def roles_user_ids
