@@ -1,12 +1,1 @@
-= Simple Author Change Redmine plugin
-
-This is a very simple plugin, yet very useful.
-
-If you ever wanted to change the author of an issue that has already been in the system, then you should definitely check out this plugin.
-
-It is very similar to the plugin from here: https://github.com/mcl-de/redmine_change_issue_author with three exceptions:
-
-* it's simpler, does not require any external dependencies
-* it does not overwrite Redmie templates (it's using hooks)
-* it's ... wait for it... working with Redmie 2.6 (Redmine-2.x branch) and 3.0 (master branch)
-
+This plugin is not maintained any more. Feel free to use it as it works fine with Redmine 2.6 and 3.0. But I won't be able to put any more time to further development.
